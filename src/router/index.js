@@ -8,7 +8,15 @@ export default new Router({
     {
       path: "/login",
       name: "Login",
-      component: () => import("@/view/login")
+      component: () => import("@/view/login"),
+      meta: {
+        title: '登陆'
+      }
     },
+    {
+      path: "*",
+      name: "404",
+      component: () => import("@/view/err/404")
+    }
   ],
 });

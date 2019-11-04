@@ -1,12 +1,10 @@
 <template>
   <div>
-    <van-button @click="login">asd</van-button>
+    <strong>页面没找到</strong>
   </div>
 </template>
 
 <script>
-import { Button } from 'vant';
-import { getUserInfo } from '../api/user';
 export default {
   props: {
 
@@ -17,7 +15,7 @@ export default {
     };
   },
   components: {
-    vanButton: Button
+
   },
   computed: {
 
@@ -32,11 +30,7 @@ export default {
 
   },
   methods: {
-    login() {
-      getUserInfo().then(res => {
-        console.log(res);
-      })
-    }
+
   },
 };
 </script>
