@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-button @click="login">asd</van-button>
+    <van-button @click="login">login</van-button>
   </div>
 </template>
 
@@ -8,38 +8,27 @@
 import { Button } from 'vant';
 import { getUserInfo } from '../api/user';
 export default {
-  props: {
-
-  },
-  data() {
-    return {
-
-    };
-  },
   components: {
     vanButton: Button
   },
-  computed: {
-
+  props: {},
+  data() {
+    return {};
   },
-  watch: {
-
-  },
+  computed: {},
+  watch: {},
   created() {
-
+    console.log(process.env);
   },
-  mounted() {
-
-  },
+  mounted() {},
   methods: {
     login() {
       getUserInfo().then(res => {
         console.log(res);
-      })
+      });
     }
-  },
+  }
 };
 </script>
 
-<style scoped lang="less">
-</style>
+<style scoped lang="scss"></style>

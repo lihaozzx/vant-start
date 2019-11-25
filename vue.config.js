@@ -1,4 +1,4 @@
-const url = require('./src/api/urls.js');
+'use strict'
 module.exports = {
   publicPath: './',
   productionSourceMap: false,
@@ -7,16 +7,26 @@ module.exports = {
   },
   devServer: {
     port: "4396",//代理端口
-    open: false,//项目启动时是否自动打开浏览器，我这里设置为false,不打开，true表示打开
+    open: false,
     proxy: {
-      '/test': {//代理api
-        target: url.dev,//服务器api地址
+      [process.env.VUE_APP_BASE_API]: {//代理api
+        target: process.env.VUE_APP_DEV_API,//服务器api地址
         changeOrigin: true,//是否跨域
         ws: true, // proxy websockets
         pathRewrite: {//重写路径 
-          "^/test": '/mall'
+          ['^'+process.env.VUE_APP_BASE_API]: process.env.VUE_APP_PREFIX
         }
       }
     }
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('eslint')
+      .use('eslint-loader')
+      .loader('eslint-loader')
+      .tap(options => {
+        options.fix = true
+        return options
+      })
   }
 }

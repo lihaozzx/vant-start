@@ -1,31 +1,31 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <router-view class="Router"></router-view>
+      <router-view class="Router" />
     </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  watch: {
-    '$route'() {
-      let isBack = this.$router.isBack //  监听路由变化时的状态为前进还是后退
-      if (isBack) {
-        this.transitionName = 'slide-right'
-      } else {
-        this.transitionName = 'slide-left'
-      }
-      this.$router.isBack = false
-    }
-  },
+  name: 'App',
   data() {
     return {
-      transitionName: 'slide-right',
+      transitionName: 'slide-right'
+    };
+  },
+  watch: {
+    $route() {
+      const isBack = this.$router.isBack; //  监听路由变化时的状态为前进还是后退
+      if (isBack) {
+        this.transitionName = 'slide-right';
+      } else {
+        this.transitionName = 'slide-left';
+      }
+      this.$router.isBack = false;
     }
   }
-}
+};
 </script>
 
 <style>

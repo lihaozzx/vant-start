@@ -1,22 +1,26 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
-  routes: [
-    {
-      path: "/login",
-      name: "Login",
-      component: () => import("@/view/login"),
-      meta: {
-        title: '登陆'
-      }
-    },
-    {
-      path: "*",
-      name: "404",
-      component: () => import("@/view/err/404")
+const routes = [
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/login'),
+    meta: {
+      title: '登陆'
     }
-  ],
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('../views/err/404')
+  }
+];
+
+const router = new VueRouter({
+  routes
 });
+
+export default router;

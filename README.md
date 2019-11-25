@@ -1,4 +1,5 @@
-# VantStart
+# vant-start
+基于vant的vue初始化项目 
 
 ## Project setup
 ```
@@ -7,22 +8,17 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+npm run build
 ```
 
 ### Lints and fixes files
 ```
-yarn run lint
+npm run lint
 ```
 
 ### Customize configuration
