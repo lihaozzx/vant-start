@@ -6,7 +6,7 @@
       :style="{'backgroundColor': bc}"
     >
       <van-icon
-        v-if="left"
+        v-if="back"
         slot="left"
         size="0.5rem"
         name="arrow-left"
@@ -48,7 +48,7 @@ export default {
       type: String,
       default: '#ffffff'
     },
-    left: {
+    back: {
       type: Boolean,
       default: false
     },
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     clickLeft() {
-      if (this.left) {
+      if (this.back) {
         if (this.goHome) {
           this.$router.push({ path: '/' });
         } else {
