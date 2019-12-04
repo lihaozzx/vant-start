@@ -55,7 +55,7 @@ span p {
 .Router {
   transition: all 0.8s ease;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .slide-left-enter,
 .slide-right-leave-active {
