@@ -17,9 +17,22 @@ export function login(data) {
   });
 }
 
-export function getUserInfo(data) {
+export function logout(data) {
   return new Promise((resolve, reject) => {
-    axios.get('/home/lowPrice', { params: data }).then(res => {
+    axios.post('/main/logout', data).then(res => {
+      if (res.code === 200) {
+        resolve(res);
+      } else {
+        this.err(res.msg);
+        reject(res);
+      }
+    });
+  });
+}
+
+export function getInfo(data) {
+  return new Promise((resolve, reject) => {
+    axios.get('/main/getInfo', { params: data }).then(res => {
       if (res.code === 200) {
         resolve(res);
       } else {

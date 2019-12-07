@@ -1,9 +1,10 @@
 <template>
   <div>
+    <div class="placeholder" />
     <nav-bar
+      :style="sty"
       @click-left="clickLeft"
       @click-right="clickRight"
-      :style="{'backgroundColor': bc}"
     >
       <van-icon
         v-if="back"
@@ -16,18 +17,18 @@
         v-else
         slot="left"
         name="left"
-      ></slot>
+      />
 
       <span
         slot="title"
         class="title"
         :style="{'color':tc}"
-      >{{$route.meta.title}}</span>
+      >{{ $route.meta.title }}</span>
 
       <slot
         slot="right"
         name="right"
-      ></slot>
+      />
     </nav-bar>
   </div>
 </template>
@@ -35,6 +36,9 @@
 <script>
 import { NavBar } from 'vant';
 export default {
+  components: {
+    NavBar
+  },
   props: {
     lc: {
       type: String,
@@ -54,10 +58,18 @@ export default {
     },
     goHome: {
       type: Boolean
-    },
+    }
   },
-  components: {
-    NavBar
+  data() {
+    return {
+      sty: {
+        backgroundColor: this.bc,
+        width: '7.5rem',
+        position: 'absolute',
+        top: 0,
+        zIndex: 999999999
+      }
+    };
   },
   methods: {
     clickLeft() {
@@ -74,11 +86,15 @@ export default {
     clickRight() {
       this.$emit('click-right');
     }
-  },
+  }
 };
 </script>
 
 <style scoped lang="scss">
+.placeholder {
+  height: 46px;
+}
+
 .title {
   font-size: 0.34rem;
 }
