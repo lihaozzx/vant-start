@@ -1,6 +1,7 @@
 'use strict'
 module.exports = {
   publicPath: './',
+  assetsDir: 'static',
   productionSourceMap: false,
   css: {
     sourceMap: false,
@@ -14,7 +15,7 @@ module.exports = {
         changeOrigin: true,//是否跨域
         ws: true, // proxy websockets
         pathRewrite: {//重写路径 
-          ['^'+process.env.VUE_APP_BASE_API]: process.env.VUE_APP_PREFIX
+          ['^' + process.env.VUE_APP_BASE_API]: process.env.VUE_APP_PREFIX
         }
       }
     }
