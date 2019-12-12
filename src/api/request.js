@@ -7,6 +7,8 @@ const url = process.env.VUE_APP_BASE_API;
 const service = axios.create({
   baseURL: url,
   timeout: 5000
+  // 也可以在这里设置headers
+  // headers: {'X-Token': getToken()},
 });
 // 对请求数据做点什么
 service.interceptors.request.use(

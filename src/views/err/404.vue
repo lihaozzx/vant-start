@@ -16,7 +16,7 @@ export default {
   created() {
     console.log(process.env);
   },
-  mounted() {},
+  mounted() { },
   methods: {}
 };
 </script>

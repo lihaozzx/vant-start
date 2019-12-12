@@ -4,39 +4,39 @@
       <router-view
         class="Router"
         :style="{'height':rheight+'px'}"
-      ></router-view>
+      />
     </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  watch: {
-    '$route'() {
-      let isBack = this.$router.isBack //  监听路由变化时的状态为前进还是后退
-      if (isBack) {
-        this.transitionName = 'slide-right'
-      } else {
-        this.transitionName = 'slide-left'
-      }
-      this.$router.isBack = false
-    }
-  },
+  name: 'App',
   data() {
     return {
       transitionName: 'slide-right',
       rheight: window.innerHeight
+    };
+  },
+  watch: {
+    '$route'() {
+      const isBack = this.$router.isBack; //  监听路由变化时的状态为前进还是后退
+      if (isBack) {
+        this.transitionName = 'slide-right';
+      } else {
+        this.transitionName = 'slide-left';
+      }
+      this.$router.isBack = false;
     }
   },
   mounted() {
-    document.addEventListener("DOMContentLoaded", () => {
-      let html = document.documentElement
-      let windowWidth = html.clientWidth >= 750 ? 750 : html.clientWidth
-      html.style.fontSize = windowWidth / 7.5 + 'px'
+    document.addEventListener('DOMContentLoaded', () => {
+      const html = document.documentElement;
+      const windowWidth = html.clientWidth >= 750 ? 750 : html.clientWidth;
+      html.style.fontSize = windowWidth / 7.5 + 'px';
     }, false);
   }
-}
+};
 </script>
 
 <style>
