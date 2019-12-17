@@ -7,15 +7,15 @@ module.exports = {
     sourceMap: false,
   },
   devServer: {
-    port: "4396",//代理端口
+    port: "4396",
     open: false,
     proxy: {
-      [process.env.VUE_APP_BASE_API]: {//代理api
-        target: process.env.VUE_APP_DEV_API,//服务器api地址
-        changeOrigin: true,//是否跨域
-        ws: true, // proxy websockets
-        pathRewrite: {//重写路径 
-          ['^' + process.env.VUE_APP_BASE_API]: process.env.VUE_APP_PREFIX
+      [process.env.VUE_APP_BASE_API]: {
+        target: process.env.VUE_APP_DEV_API,
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {//重写路径
+          ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       }
     }

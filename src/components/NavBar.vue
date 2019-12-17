@@ -98,4 +98,7 @@ export default {
 .title {
   font-size: 0.34rem;
 }
+.van-hairline--bottom::after {
+  border: none;
+}
 </style>
